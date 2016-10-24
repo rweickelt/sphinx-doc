@@ -6,19 +6,19 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update to latest state
 RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   make \
   python-pip \
   python-dev \
   openjdk-7-jre \
   graphviz \
-  python-pil \
+  python-pil
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   texlive texlive-latex-recommended \
   texlive-latex-extra \
   texlive-fonts-recommended
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  python-pil
 
 RUN pip install Sphinx==1.4.6 \
     sphinx_rtd_theme \
